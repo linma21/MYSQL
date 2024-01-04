@@ -51,17 +51,17 @@ INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a103','2018','2',1850
 INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a105','2018','2',19000);
 INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a106','2018','2',53000);
 
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a101','2018','1',24000);
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a102','2018','1',109000);
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a103','2018','1',101000);
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a104','2018','1',53500);
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a107','2018','1',24000);
+INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a101','2019','1',24000);
+INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a102','2019','1',109000);
+INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a103','2019','1',101000);
+INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a104','2019','1',53500);
+INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a107','2019','1',24000);
 
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a102','2018','2',109000);
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a103','2018','2',101000);
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a104','2018','2',53500);
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a105','2018','2',24000);
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a106','2018','2',109000);
+INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a102','2019','2',160000);
+INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a103','2019','2',101000);
+INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a104','2019','2',53500);
+INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a105','2019','2',24000);
+INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a106','2019','2',109000);
 
 INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a102','2020','1',201000);
 INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a104','2020','1',63000);
@@ -161,8 +161,13 @@ SELECT NOW();
 INSERT INTO `member` VALUES ('a112','유관순','010-124-1012','대리',107,NOW());
 
 # 실습 4-7. 2018년 1월 매출의 총합을 구하시오.
-SELECT SUM(sale) AS '합계' FROM `sales`;
+
+SELECT SUM(sale) AS '합계' FROM `sales` WHERE `year`='2018' AND `month` = '1';
+
 # 실습 4-8. 2019년 2월에 5만원 이상 매출에 대한 총합과 평균을 구하시오.
+
+SELECT SUM(sale) AS '합계' FROM `sales` WHERE `year`='2019' AND `month` = '2' AND `sale` > 50000;
+
 # 실습 4-9. 2020년 전체 매출 가운데 최저, 최고, 매출을 구하시오.
 
 #실습 4-10
@@ -235,17 +240,24 @@ SELECT * FROM `member` AS a JOIN `Department` AS b ON a.dep = b.depNo;
 SELECT *FROM `SALES` AS a, `member` AS b WHERE a.uid = b.uid;
 SELECT * FROM `member` AS a ,`Department` AS b WHERE a.dep = b.depNo;
 
+SELECT a.`seq`, a.`uid`, `sale`, `name`, `pos` FROM `Sales` AS a 
+ JOIN `Member` AS b ON a.`uid` = b.`uid`;
+
 SELECT a.`seq`,`uid`,`sale`,`name`,`pos`FROM `Sales` AS a 
 JOIN `Member` AS b USING (uid);
 
-SELECT * FROM `Sales` AS a
-JOIN `Member` AS b ON a.uid = b.uid
-JOIN `Department` AS c ON b.dep = c.depNo;
+SELECT a.`seq`, a.`uid`,`sale`,`name`,`pos` FROM `Sales` AS a
+JOIN `Member` AS b ON a.`uid` = b.`uid`
+WHERE `sale` >= 100000;
 
 SELECT a.`seq`, a.`uid`,b.`name`,b.`pos`,`year`,SUM(`sale`) AS `합계` FROM `Sales` AS a
 JOIN `Member` AS b ON a.uid = b.uid
 GROUP BY a.`uid`, a .`year` HAVING `합계` >=100000
 ORDER BY a.`year` ASC, `합계` DESC;
+
+SELECT * FROM `Sales` AS a
+JOIN `Member` AS b ON a.uid = b.uid
+JOIN `Department` AS c ON b.dep = c.depNo;
 
 SELECT * FROM `Sales` AS a INNER JOIN `Member` AS b ON a.uid = b.uid;
 SELECT * FROM `Sales` AS a LEFT JOIN `Member` AS b ON a.uid = b.uid;
