@@ -2,6 +2,7 @@
 # 이름 : 최이진
 # 내용 : 4장 SQL 고급
 # 실습 4-1
+USE chlvldzmf;
  CREATE TABLE `Member` (
     `uid`     VARCHAR(10) primary key,
 	`name`    VARCHAR(10) NOT NULL,
@@ -234,7 +235,10 @@ SELECT SUM(sale) AS '합계' FROM `sales` WHERE `year`='2019' AND `month` = '2' 
 SELECT * FROM `sales` INNER JOIN `member` ON `sales`.uid = `member`.uid;
 SELECT * FROM `member` INNER JOIN `department` ON `member`. dep = `department`.depNo;
 
-SELECT * FROM `sales` AS a JOIN `member` AS b ON a.uid = b.uid; 
+SELECT * FROM 
+`sales` AS a JOIN 
+`member` AS b 
+ON a.uid = b.uid; 
 SELECT * FROM `member` AS a JOIN `Department` AS b ON a.dep = b.depNo;
 
 SELECT *FROM `SALES` AS a, `member` AS b WHERE a.uid = b.uid;
