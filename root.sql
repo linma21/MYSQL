@@ -11,3 +11,9 @@ CREATE USER 'bank'@'%' IDENTIFIED BY '1234';
 GRANT ALL PRIVILEGES ON Bank.* TO 'bank'@'%';
 GRANT ALL PRIVILEGES ON shop.* TO 'chlvldzmf'@'%';
 FLUSH PRIVILEGES;
+
+CREATE DATABASE `College`;
+CREATE USER 'college'@'%' IDENTIFIED BY '123';
+GRANT ALL PRIVILEGES ON College.* TO 'college'@'%';
+GRANT ALL PRIVILEGES ON College.* TO 'chlvldzmf'@'%';
+FLUSH PRIVILEGES;

@@ -314,8 +314,56 @@ SELECT M.mem_id, M.mem_name, B.prod_name, M.addr
   ORDER BY M.mem_id;  
   
 #손코딩 p183
+SELECT DISTINCT M.mem_id, M.mem_name, M.addr
+  FROM buy B
+  INNER JOIN member M
+  ON B.mem_id = M.mem_id
+ ORDER BY M.mem_id; 
+
+#손코딩 p184
+SELECT M.mem_id,M.mem_name, B.prod_name, M.addr
+  FROM member M
+  LEFT OUTER JOIN buy B ON M.mem_id = B.mem_id
+ORDER BY M.mem_id;
+
+#손코딩 p185
+SELECT M.mem_id,M.mem_name, B.prod_name ,M.addr
+  FROM buy B
+  RIGHT OUTER JOIN member M
+  ON M.mem_id = B.mem_id
+ ORDER BY M.mem_id; 
+ 
+ SELECT DISTINCT M.mem_id, B.prod_name, M.mem_name, M.addr
+   FROM member M
+   LEFT OUTER JOIN buy B
+   ON M.mem_id = B.mem_id
+  WHERE B.prod_name IS NULL
+  ORDER BY M.mem_id;
+  
+#손코딩 p188
+SELECT COUNT(*) `데이터 개수`
+   FROM sakila.inventory
+     CROSS JOIN world.city;
+     
+#손코딩 p191
+CREATE TABLE emp_table(
+  emp CHAR(4),
+  manager CHAR(4),
+  phone VARCHAR(8)
+  );
+  
+INSERT INTO emp_table VALUES('대표',NULL,'0000');
+INSERT INTO emp_table VALUES('영업이사','대표','1111');
+INSERT INTO emp_table VALUES('관리이사','대표','2222');
+INSERT INTO emp_table VALUES('정보이사','대표','3333');
+INSERT INTO emp_table VALUES('영업과장','영업이사','1111-1');
+INSERT INTO emp_table VALUES('경리부장','관리이사','2222-1');
+INSERT INTO emp_table VALUES('인사부장','관리이사','2222-2');
+INSERT INTO emp_table VALUES('개발팀장','정보이사','3333-1');
+INSERT INTO emp_table VALUES('개발주임','정보이사','3333-1-1');
 
 
-#손코딩 p181
-#손코딩 p181
-#손코딩 p181
+#손코딩 p196
+#손코딩 p197
+#손코딩 p198
+#손코딩 p199
