@@ -1,5 +1,5 @@
 
-USE shoperd;
+USE University;
 
 insert into `Customer` values ('c101', '김유신', '010-1234-1001', '경남 김해시', '2023-01-01');
 insert into `Customer` values ('c102', '김춘추', '010-1234-1002', '경남 경주시', '2023-01-02');
@@ -122,7 +122,15 @@ UPDATE `Register` SET `regTotalScore` = `regMidScore` + `regFinalScore`,
 					WHEN `regTotalScore` >= 70 THEN 'C'
 					WHEN `regTotalScore` >= 60 THEN 'D'
                     ELSE 'F'
-				END	;		
+				END	;	
+                
+UPDATE `Register` SET
+                 `regTotalScore` = `regMidScore` + `regFinalScore`,
+                 `regGrade` = if(`regTotalScore` >= 90, 'A',
+                              if(`regTotalScore` >= 80, 'B',
+                              if(`regTotalScore` >= 70, 'C',
+                              if(`regTotalScore` >= 60, 'D', 'F'))));                            
+                              
 select 
 	`regStdNo`, 
     `regLecNo`, 

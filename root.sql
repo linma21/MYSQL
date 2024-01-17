@@ -17,3 +17,11 @@ CREATE USER 'college'@'%' IDENTIFIED BY '123';
 GRANT ALL PRIVILEGES ON College.* TO 'college'@'%';
 GRANT ALL PRIVILEGES ON College.* TO 'chlvldzmf'@'%';
 FLUSH PRIVILEGES;
+
+CREATE DATABASE `BookStore`;
+CREATE USER 'bookstore'@'%' IDENTIFIED BY '1324';
+GRANT ALL PRIVILEGES ON `bookStore`.*TO 'bookstore'@'%';
+GRANT ALL PRIVILEGES ON `bookStore`.*TO 'chlvldzmf'@'%';
+FLUSH PRIVILEGES;
+
+CREATE DATABASE naver_db;
