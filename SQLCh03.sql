@@ -10,7 +10,7 @@ CREATE TABLE `User2` (
     `addr`	VARCHAR(50)
 );
 
-DROP TABLE `User2`;
+#DROP TABLE `User2`;
 
 #실습 3-2
 INSERT INTO `User2` VALUES ('A101', '김유신', '1968-05-09', '경남 김해시');
@@ -28,7 +28,7 @@ CREATE TABLE `User3` (
     `addr`	VARCHAR(50)
 );
 
-drop table `User3`;
+#drop table `User3`;
 
 #실습 3-4
 INSERT INTO `User3` VALUES ('A101', '김유신', '1968-05-09', '010-1234-1111', '경남 김해시');

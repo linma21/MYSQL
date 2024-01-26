@@ -10,7 +10,7 @@ CREATE TABLE `User1` (
     `age`	INT
 );
 
-DROP TABLE `User1`;
+#DROP TABLE `User1`;
 
 #실습 2-2
 INSERT INTO `User1` VALUES ('A101', '김유신', '010-1234-1111', 25);

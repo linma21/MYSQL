@@ -1,7 +1,7 @@
 #날짜 : 24/01/09
 #이름 : 최이진
 #내용 : SQL 연습문제2
-USE chlvldzmf;
+
 #실습 2-2
 CREATE TABLE `bank_customer` (
 	`c_no`   VARCHAR(14) PRIMARY KEY,
