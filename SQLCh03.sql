@@ -36,7 +36,7 @@ INSERT INTO `User3` VALUES ('A102', '김춘추', '1972-11-23', '010-1234-2222', 
 INSERT INTO `User3` VALUES ('A103', '장보고', '1978-03-01', '010-1234-3333', '전남 완도군');
 INSERT INTO `User3` VALUES ('A104', '강감찬', '1979-08-16', '010-1234-4444', '서울시 관악구');
 INSERT INTO `User3` VALUES ('A105', '이순신', '1981-05-23', '010-1234-5555', '부산시 진구');
-INSERT INTO `User3` VALUES ('A106', '안중근', '1981-05-21', null, '부산시 진구');
+INSERT INTO `User3` VALUES ('A106', '안중근', '1981-05-21', null, '부산시 진진구');
 
 #실습 3-5
 create table `Parent` (
